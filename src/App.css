@@ -9,6 +9,7 @@
 body {
   font-family: "Poppins", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
     "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  background: linear-gradient(rgb(86, 86, 235), rgb(5, 5, 199));
 }
 
 .search {
@@ -48,21 +49,12 @@ h1 {
   font-size: 5rem;
 }
 
-.app {
-  width: 100%;
-  height: 100vh;
-  position: relative;
-  background-color: rgba(0, 0, 0, 0.4);
-  color: #fff;
-}
 .container {
   width: 100%;
 
   height: 100vh;
 
   padding-top: 40px;
-
-  background-color: rgb(137, 170, 237);
 }
 .weather {
   width: 580px;
@@ -75,9 +67,7 @@ h1 {
 
   text-align: center;
 
-  color: white;
-
-  background: linear-gradient(130deg, rgb(86, 86, 235), rgb(5, 5, 199));
+  background-color: white;
 }
 
 .bold {
@@ -92,5 +82,16 @@ h1 {
   margin: 1rem auto;
   padding: 1rem;
   border-radius: 12px;
-  background-color: rgba(255,255,255, 0.2);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.w-img {
+  height: 30px;
+  width: 50px;
+  margin-top: -50px;
+  object-fit: fill;
+}
+
+.humidityimg {
+  height: 10px;
 }
