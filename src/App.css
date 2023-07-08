@@ -86,12 +86,18 @@ h1 {
 }
 
 .w-img {
-  height: 30px;
-  width: 50px;
-  margin-top: -50px;
-  object-fit: fill;
+  height: 200px;
+  width: 200px;
+
 }
 
-.humidityimg {
-  height: 10px;
+.feelsimg {
+  height: 40px;
+  margin-top: -10px;
+}
+
+
+.desc{
+  margin-bottom: 10px;
+  text-transform: capitalize;
 }

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useDeferredValue } from "react";
-import { WiHumidity } from "react-icons/wi";
-import { FaTemperatureHigh } from "react-icons/fa";
+import { BiMap } from "react-icons/bi";
+import Feelslike from "./feelslike.png";
+import Humidity from "./humidity.png";
 
 const API_KEY = "fdea2e3e09c37566ee84f3c5efc7645e";
 
@@ -31,7 +32,7 @@ const WeatherComponent = () => {
 
   const weatherIconId = weatherData?.weather[0].icon;
   const weatherImageUrl = weatherIconId
-    ? `https://openweathermap.org/img/wn/${weatherIconId}@2x.png`
+    ? `https://openweathermap.org/img/wn/${weatherIconId}@4x.png`
     : undefined;
 
   if (!weatherData) {
@@ -60,18 +61,14 @@ const WeatherComponent = () => {
                 />
               </button>
             </div>
-
-            <h1>
-              Weather in {weatherData.name} ,{weatherData.sys.country}
-            </h1>
+            {weatherImageUrl ? (
+              <img className="w-img" src={weatherImageUrl} />
+            ) : null}
+            <h1>{weatherData.main.temp.toFixed()} °C</h1>
+            <p className="desc">{weatherData.weather[0].description}</p>
             <p>
-              Weather:{" "}
-              {weatherImageUrl ? (
-                <img className="w-img" src={weatherImageUrl} />
-              ) : null}
-              {weatherData.weather[0].description}
+              <BiMap /> {weatherData.name} ,{weatherData.sys.country}
             </p>
-            <p>Temperature: {weatherData.main.temp.toFixed()} °C</p>
 
             <div className="bottom">
               <div className="feels">
@@ -81,7 +78,8 @@ const WeatherComponent = () => {
                   </p>
                 ) : null}
                 <p>
-                  <FaTemperatureHigh /> Feels Like
+                  <img className="feelsimg" src={Feelslike} />
+                  Feels Like
                 </p>
               </div>
               <div className="humidity">
@@ -89,8 +87,8 @@ const WeatherComponent = () => {
                   <p className="bold">{weatherData.main.humidity}%</p>
                 ) : null}
                 <p>
-                  <span className="humidityimg">
-                    <WiHumidity />
+                  <span>
+                    <img className="feelsimg" src={Humidity} />
                   </span>{" "}
                   Humidity
                 </p>
