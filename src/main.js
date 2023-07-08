@@ -57,12 +57,13 @@ const WeatherComponent = () => {
                 <img
                   className=""
                   alt="search"
+                  alt="Search"
                   src="https://cdn-icons-png.flaticon.com/512/3917/3917132.png"
                 />
               </button>
             </div>
             {weatherImageUrl ? (
-              <img className="w-img" src={weatherImageUrl} />
+              <img className="w-img" src={weatherImageUrl} alt="img"/>
             ) : null}
             <h1>{weatherData.main.temp.toFixed()} °C</h1>
             <p className="desc">{weatherData.weather[0].description}</p>
@@ -78,7 +79,7 @@ const WeatherComponent = () => {
                   </p>
                 ) : null}
                 <p>
-                  <img className="feelsimg" src={Feelslike} />
+                  <img className="feelsimg" src={Feelslike} alt="Feels Like"/>
                   Feels Like
                 </p>
               </div>
@@ -88,7 +89,7 @@ const WeatherComponent = () => {
                 ) : null}
                 <p>
                   <span>
-                    <img className="feelsimg" src={Humidity} />
+                    <img className="feelsimg" src={Humidity} alt="Humidity"/>
                   </span>{" "}
                   Humidity
                 </p>
