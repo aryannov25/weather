@@ -2,19 +2,22 @@ import React, { useState, useEffect, useDeferredValue } from "react";
 import { BiMap } from "react-icons/bi";
 import Feelslike from "./feelslike.png";
 import Humidity from "./humidity.png";
+import { useSearchParams } from "react-router-dom";
 
-const API_KEY = "fdea2e3e09c37566ee84f3c5efc7645e";
+const API_KEY = "16bfa98849718de13b6e8978b87d47b8";
 
 const WeatherComponent = () => {
-  const [city, setCity] = useState("Delhi");
   const [error, setError] = useState(false);
   const [weatherData, setWeatherData] = useState(null);
+  const [searchParams] = useSearchParams();
 
-  const deferredCity = useDeferredValue(city);
+  const query = searchParams.get("city");
+  console.log(query);
+  const deferredCity = useDeferredValue(query);
 
   const fetchWeatherData = async () => {
     const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${deferredCity}&appid=${API_KEY}&units=metric`
+      `https://api.openweathermap.org/data/2.5/weather?q=${query}&appid=${API_KEY}&units=metric`
     );
 
     if (!response.ok) {
@@ -28,7 +31,7 @@ const WeatherComponent = () => {
 
   useEffect(() => {
     fetchWeatherData();
-  }, [deferredCity]);
+  }, [query]);
 
   const weatherIconId = weatherData?.weather[0].icon;
   const weatherImageUrl = weatherIconId
@@ -44,26 +47,8 @@ const WeatherComponent = () => {
       <div className="weather">
         {weatherData !== undefined && (
           <div>
-            <div className="search">
-              <input
-                type="text"
-                placeholder="Enter city name"
-                onChange={(e) => {
-                  setCity(e.target.value);
-                }}
-                value={city}
-              />{" "}
-              <button onClick={fetchWeatherData}>
-                <img
-                  className=""
-                  alt="search"
-                  alt="Search"
-                  src="https://cdn-icons-png.flaticon.com/512/3917/3917132.png"
-                />
-              </button>
-            </div>
             {weatherImageUrl ? (
-              <img className="w-img" src={weatherImageUrl} alt="img"/>
+              <img className="w-img" src={weatherImageUrl} alt="img" />
             ) : null}
             <h1>{weatherData.main.temp.toFixed()} °C</h1>
             <p className="desc">{weatherData.weather[0].description}</p>
@@ -79,7 +64,7 @@ const WeatherComponent = () => {
                   </p>
                 ) : null}
                 <p>
-                  <img className="feelsimg" src={Feelslike} alt="Feels Like"/>
+                  <img className="feelsimg" src={Feelslike} alt="Feels Like" />
                   Feels Like
                 </p>
               </div>
@@ -89,7 +74,7 @@ const WeatherComponent = () => {
                 ) : null}
                 <p>
                   <span>
-                    <img className="feelsimg" src={Humidity} alt="Humidity"/>
+                    <img className="feelsimg" src={Humidity} alt="Humidity" />
                   </span>{" "}
                   Humidity
                 </p>
