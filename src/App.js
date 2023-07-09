@@ -44,9 +44,6 @@ function App() {
       <div className="weather">
         <h2 className="title">
           Weather App
-          <span className="titleline">
-            <hr />
-          </span>
         </h2>
 
         <form className="search" onSubmit={handleSubmit}>
@@ -80,7 +77,7 @@ function App() {
             Get Device Location
           </button>
 
-          {locationEnabled == false && (
+          {locationEnabled === false && (
             <h4>Enable Location to use this option</h4>
           )}
         </div>

@@ -36,9 +36,12 @@ const WeatherComponent = () => {
     setWeatherData(data);
   };
 
-  useEffect(() => {
-    fetchWeatherData();
-  }, [query]);
+  useEffect(
+    () => {
+      fetchWeatherData();
+    }, // eslint-disable-next-line
+    [query]
+  );
 
   // https://api.openweathermap.org/data/2.5/weather?lat=28.6542&lon=77.2373&appid=16bfa98849718de13b6e8978b87d47b8
 
