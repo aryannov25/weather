@@ -164,7 +164,9 @@ h1 {
 }
 
 .button-21:disabled:hover {
+  cursor: not-allowed;
   background-position: unset;
+
 }
 
 .button-21:hover {
