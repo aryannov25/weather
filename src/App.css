@@ -13,16 +13,17 @@ body {
   background: linear-gradient(rgb(86, 86, 235), rgb(5, 5, 199));
 }
 
-
-.title{
+.title {
   text-align: start;
   color: #149bf3;
-
 }
 
-.titleline{
-width: 600px;
+.titleline {
+  width: 600px;
+}
 
+h4 {
+  margin-top: 20px;
 }
 .search {
   margin-top: 20px;
@@ -130,7 +131,7 @@ h1 {
   margin-top: 40px;
 }
 
-.or{
+.or {
   margin-top: 20px;
   width: 510px;
 }
@@ -160,6 +161,10 @@ h1 {
 .button-21:active,
 .button-21:focus {
   outline: none;
+}
+
+.button-21:disabled:hover {
+  background-position: unset;
 }
 
 .button-21:hover {

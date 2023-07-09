@@ -7,12 +7,12 @@ function App() {
   const [city, setCity] = useState("");
   const [lat, setLat] = useState("");
   const [lon, setLon] = useState("");
+  const [locationEnabled, setLocationEnabled] = useState(undefined);
 
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // console.log("submit");
     navigate(`/weather?city=${city}`);
   };
 
@@ -20,16 +20,22 @@ function App() {
     location();
   }, []);
 
-  const location = async () => {
-    const response = await navigator.geolocation.getCurrentPosition((info) => {
-      setLon(info.coords.longitude);
-      setLat(info.coords.latitude);
-    });
+  const location = () => {
+    navigator.geolocation.getCurrentPosition(
+      (info) => {
+        setLon(info.coords.longitude);
+        setLat(info.coords.latitude);
+        setLocationEnabled(true);
+      },
+      (err) => {
+        setLocationEnabled(false);
+        console.log(err);
+      }
+    );
   };
 
   const handleClick = (e) => {
     e.preventDefault();
-    // console.log("submit");
     navigate(`/location?lat=${lat}&lon=${lon}`);
   };
 
@@ -66,22 +72,16 @@ function App() {
           <hr />
         </div>
         <div>
-        {lat == "" && (
-            <h4
+          <button
+            className="button-21"
+            onClick={handleClick}
+            disabled={!locationEnabled}
           >
-            Enable Location to see this option
-          </h4>
-          )}
-          
-          {!lat == "" && (
-            <button
-              className="button-21"
-              role="button"
-              onClick={handleClick}
-              disabled={!lat}
-            >
-              Get Device Location
-            </button>
+            Get Device Location
+          </button>
+
+          {locationEnabled == false && (
+            <h4>Enable Location to use this option</h4>
           )}
         </div>
         {/* <Main /> */}

@@ -6,7 +6,6 @@ import Back from "./img/back.png";
 import { useSearchParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-
 //16bfa98849718de13b6e8978b87d47b8
 //fdea2e3e09c37566ee84f3c5efc7645e
 
@@ -14,17 +13,21 @@ const WeatherComponent = () => {
   const [error, setError] = useState(null);
   const [weatherData, setWeatherData] = useState(null);
   const [searchParams] = useSearchParams();
+  const [loading, setLoading] = useState(true);
 
   const lat = searchParams.get("lat");
   const lon = searchParams.get("lon");
 
-//   console.log(lat, lon);
+  //   console.log(lat, lon);
 
   const fetchWeatherData = async () => {
     const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=`+ process.env.REACT_APP_API_KEY+ "&units=metric"
+      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=` +
+        process.env.REACT_APP_API_KEY +
+        "&units=metric"
     );
 
+    setLoading(false);
     if (!response.ok) {
       return setError(response.status);
     }
@@ -55,6 +58,24 @@ const WeatherComponent = () => {
     );
   }
 
+  if (loading) {
+    return (
+      <div className="container">
+        <div className="weather">
+          <h2 className="back">
+            <span className="backarrow">
+              <Link to="/">
+                <img className="backarrow" src={Back} alt="Humidity" />{" "}
+              </Link>
+            </span>{" "}
+            Weather App
+          </h2>
+          {/* <p className="error">Location Not Found!</p>{" "} */}
+        </div>
+      </div>
+    );
+  }
+
   if (!weatherData) {
     return (
       <div className="container">
@@ -67,7 +88,7 @@ const WeatherComponent = () => {
             </span>{" "}
             Weather App
           </h2>
-          <p className="error">Location Not Found!</p>{" "}
+          {/* <p className="error">Location Not Found!</p>{" "} */}
         </div>
       </div>
     );
