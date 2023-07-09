@@ -10,6 +10,9 @@ import { Link } from "react-router-dom";
 //fdea2e3e09c37566ee84f3c5efc7645e
 
 const WeatherComponent = () => {
+  const [data, setData] = useState({
+    image: "/img/clouds.png",
+  });
   const [error, setError] = useState(null);
   const [weatherData, setWeatherData] = useState(null);
   const [searchParams] = useSearchParams();
@@ -32,14 +35,37 @@ const WeatherComponent = () => {
       return setError(response.status);
     }
     setError(null);
-    const data = await response.json();
+    const data = await response.json().then((response) => {
+      let imagePath = "";
+      if (response.weather[0].main == "Clouds") {
+        imagePath = "/img/clouds.png";
+      } else if (response.weather[0].main == "Clear") {
+        imagePath = "/img/clear.png";
+      } else if (response.weather[0].main == "Rain") {
+        imagePath = "/img/rain.png";
+      } else if (response.weather[0].main == "Drizzle") {
+        imagePath = "/img/drizzle.png";
+      } else if (response.weather[0].main == "Mist") {
+        imagePath = "/img/mist.png";
+      } else {
+        imagePath = "/img/clouds.png";
+      }
+      console.log(response);
+      setData({ image: imagePath });
+          
+    });
+              setWeatherData(data);
+
     // console.log(data);
-    setWeatherData(data);
+
   };
 
-  useEffect(() => {
-    fetchWeatherData();
-  }, [lat, lon]);
+  useEffect(
+    () => {
+      fetchWeatherData();
+    }, // eslint-disable-next-line
+    [lat, lon]
+  );
 
   // https://api.openweathermap.org/data/2.5/weather?lat=28.6542&lon=77.2373&appid=16bfa98849718de13b6e8978b87d47b8
 
@@ -107,6 +133,7 @@ const WeatherComponent = () => {
               </span>{" "}
               Weather App
             </h2>
+            <img src={data.image} alt="" className="icon" />
             {weatherImageUrl ? (
               <img className="w-img" src={weatherImageUrl} alt="img" />
             ) : null}
