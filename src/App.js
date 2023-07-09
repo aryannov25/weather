@@ -1,16 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
-import Main from "./main";
-import { Link } from "react-router-dom";
 
+import { useNavigate } from "react-router-dom";
 
 function App() {
   const [city, setCity] = useState("Delhi");
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("submit");
+    navigate(`/weather?city=${city}`);
+  };
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition((data) => {
+      console.log(data);
+    });
+  });
 
   return (
     <div className="container">
       <div className="weather">
-        <div className="search">
+        <form className="search" onSubmit={handleSubmit}>
           <input
             type="text"
             placeholder="Enter city name"
@@ -19,17 +31,14 @@ function App() {
             }}
             value={city}
           />{" "}
-          <Link to="/weather">
-          <button>
+          <button type="submit">
             <img
               className=""
               alt="search"
-              alt="Search"
               src="https://cdn-icons-png.flaticon.com/512/3917/3917132.png"
             />
           </button>
-          </Link>
-        </div>
+        </form>
         {/* <Main /> */}
       </div>
     </div>
