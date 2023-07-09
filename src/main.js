@@ -21,10 +21,6 @@ const WeatherComponent = () => {
   const [imagePath, setImagePath] = useState(null);
 
   const query = searchParams.get("city");
-  //   const lat = searchParams.get("lat");
-  //   const lon = searchParams.get("lon");
-
-  // console.log(lat,lon)
 
   const fetchWeatherData = async () => {
     const response = await fetch(
@@ -41,10 +37,7 @@ const WeatherComponent = () => {
     // console.log(data);
     setWeatherData(data);
 
-    // let imagePath = "";
-
     if (data.weather[0].main === "Clouds") {
-      // imagePath = "/img/clouds.png";
       setImagePath(clouds);
     } else if (data.weather[0].main === "Clear") {
       setImagePath(clear);
@@ -126,12 +119,6 @@ const WeatherComponent = () => {
               Weather App
             </h2>
             <div>
-              {/* {imagePath && (
-              <div
-                className=""
-                
-              ></div>
-            )} */}
               {weatherImageUrl ? (
                 <img className="w-img" src={weatherImageUrl} alt="img" />
               ) : null}

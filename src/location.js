@@ -43,7 +43,6 @@ const WeatherComponent = () => {
     setWeatherData(data);
 
     if (data.weather[0].main === "Clouds") {
-      // imagePath = "/img/clouds.png";
       setImagePath(clouds);
     } else if (data.weather[0].main === "Clear") {
       setImagePath(clear);
@@ -66,8 +65,6 @@ const WeatherComponent = () => {
     }, // eslint-disable-next-line
     [lat, lon]
   );
-
-  // https://api.openweathermap.org/data/2.5/weather?lat=28.6542&lon=77.2373&appid=16bfa98849718de13b6e8978b87d47b8
 
   const weatherIconId = weatherData?.weather[0].icon;
   const weatherImageUrl = weatherIconId
@@ -126,7 +123,6 @@ const WeatherComponent = () => {
         width: "100%",
         height: "100vh",
         borderRadius: "5px",
-        // opacity: "0.5",
         backgroundImage: `url(${imagePath})`,
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
@@ -147,12 +143,6 @@ const WeatherComponent = () => {
                 Weather App
               </h2>
               <div>
-                {/* {imagePath && (
-              <div
-                className=""
-                
-              ></div>
-            )} */}
                 {weatherImageUrl ? (
                   <img className="w-img" src={weatherImageUrl} alt="img" />
                 ) : null}
