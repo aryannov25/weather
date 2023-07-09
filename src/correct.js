@@ -27,7 +27,7 @@ const WeatherComponent = () => {
     }
 
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
     setWeatherData(data);
   };
 

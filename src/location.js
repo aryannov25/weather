@@ -18,7 +18,7 @@ const WeatherComponent = () => {
   const lat = searchParams.get("lat");
   const lon = searchParams.get("lon");
 
-  console.log(lat, lon);
+//   console.log(lat, lon);
 
   const fetchWeatherData = async () => {
     const response = await fetch(
@@ -30,7 +30,7 @@ const WeatherComponent = () => {
     }
     setError(null);
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
     setWeatherData(data);
   };
 

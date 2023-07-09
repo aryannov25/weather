@@ -4,15 +4,15 @@ import "./App.css";
 import { useNavigate } from "react-router-dom";
 
 function App() {
-  const [city, setCity] = useState("Delhi");
-  const [lat, setLat] = useState("Delhi");
-  const [lon, setLon] = useState("Delhi");
+  const [city, setCity] = useState("");
+  const [lat, setLat] = useState("");
+  const [lon, setLon] = useState("");
 
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("submit");
+    // console.log("submit");
     navigate(`/weather?city=${city}`);
   };
 
@@ -29,7 +29,7 @@ function App() {
 
   const handleClick = (e) => {
     e.preventDefault();
-    console.log("submit");
+    // console.log("submit");
     navigate(`/location?lat=${lat}&lon=${lon}`);
   };
 
@@ -66,13 +66,23 @@ function App() {
           <hr />
         </div>
         <div>
-          <button
-            class="button-21"
-            role="button"
-            onClick={handleClick}
+        {lat == "" && (
+            <h4
           >
-            Get Device Location
-          </button>
+            Enable Location to see this option
+          </h4>
+          )}
+          
+          {!lat == "" && (
+            <button
+              className="button-21"
+              role="button"
+              onClick={handleClick}
+              disabled={!lat}
+            >
+              Get Device Location
+            </button>
+          )}
         </div>
         {/* <Main /> */}
       </div>
