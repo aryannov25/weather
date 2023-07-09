@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./index.css";
 import App from "./App";
 import Main from "./main";
+import Location from "./location";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -12,6 +13,8 @@ root.render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/weather" element={<Main />} />
+        <Route path="/location" element={<Location />} />
+
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

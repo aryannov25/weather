@@ -16,15 +16,14 @@ const WeatherComponent = () => {
   const [weatherData, setWeatherData] = useState(null);
   const [searchParams] = useSearchParams();
 
-  const query = searchParams.get("city");
-  //   const lat = searchParams.get("lat");
-  //   const lon = searchParams.get("lon");
+  const lat = searchParams.get("lat");
+  const lon = searchParams.get("lon");
 
-  // console.log(lat,lon)
+  console.log(lat, lon);
 
   const fetchWeatherData = async () => {
     const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${query}&appid=${API_KEY}&units=metric`
+      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`
     );
 
     if (!response.ok) {
@@ -38,7 +37,7 @@ const WeatherComponent = () => {
 
   useEffect(() => {
     fetchWeatherData();
-  }, [query]);
+  }, [lat, lon]);
 
   // https://api.openweathermap.org/data/2.5/weather?lat=28.6542&lon=77.2373&appid=16bfa98849718de13b6e8978b87d47b8
 
@@ -51,15 +50,7 @@ const WeatherComponent = () => {
     return (
       <div className="container">
         <div className="weather">
-          <h2 className="back">
-            <span className="backarrow">
-              <Link to="/">
-                <img className="backarrow" src={Back} alt="Humidity" />{" "}
-              </Link>
-            </span>{" "}
-            Weather App
-          </h2>
-          <p className="error">City Not Found!</p>{" "}
+          <h1>Location Not Found!</h1>;
         </div>
       </div>
     );
@@ -69,7 +60,15 @@ const WeatherComponent = () => {
     return (
       <div className="container">
         <div className="weather">
-          <div>Loading...</div>{" "}
+          <h2 className="back">
+            <span className="backarrow">
+              <Link to="/">
+                <img className="backarrow" src={Back} alt="Humidity" />{" "}
+              </Link>
+            </span>{" "}
+            Weather App
+          </h2>
+          <p className="error">Location Not Found!</p>{" "}
         </div>
       </div>
     );
