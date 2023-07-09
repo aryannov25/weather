@@ -6,8 +6,6 @@ import Back from "./img/back.png";
 import { useSearchParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-const API_KEY = "16bfa98849718de13b6e8978b87d47b8";
-
 //16bfa98849718de13b6e8978b87d47b8
 //fdea2e3e09c37566ee84f3c5efc7645e
 
@@ -24,7 +22,9 @@ const WeatherComponent = () => {
 
   const fetchWeatherData = async () => {
     const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${query}&appid=${API_KEY}&units=metric`
+      `https://api.openweathermap.org/data/2.5/weather?q=${query}&appid=` +
+        process.env.REACT_APP_API_KEY +
+        "&units=metric"
     );
 
     if (!response.ok) {
