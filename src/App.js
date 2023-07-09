@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-
+import { FaLocationArrow } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 function App() {
@@ -41,10 +41,8 @@ function App() {
 
   return (
     <div className="container">
-      <div className="weather">
-        <h2 className="title">
-          Weather App
-        </h2>
+      <div className="weatherInput">
+        <h2 className="title">Weather App</h2>
 
         <form className="search" onSubmit={handleSubmit}>
           <input
@@ -64,9 +62,8 @@ function App() {
           </button> */}
         </form>
         <div className="or">
-          <hr />
-          OR
-          <hr />
+          <div className="or__line"></div>
+          <div className="or__text">OR</div>
         </div>
         <div>
           <button
@@ -74,7 +71,8 @@ function App() {
             onClick={handleClick}
             disabled={!locationEnabled}
           >
-            Get Device Location
+            <span>
+            <FaLocationArrow /> </span>{""}&nbsp; Get Current Location
           </button>
 
           {locationEnabled === false && (

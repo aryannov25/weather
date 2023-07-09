@@ -5,6 +5,11 @@ import Humidity from "./img/humidity.png";
 import Back from "./img/back.png";
 import { useSearchParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import clouds from "./img/clouds.gif";
+import rain from "./img/rain.gif";
+import mist from "./img/mist.gif";
+import drizzle from "./img/drizzle.gif";
+import clear from "./img/clear.gif";
 
 //16bfa98849718de13b6e8978b87d47b8
 //fdea2e3e09c37566ee84f3c5efc7645e
@@ -13,6 +18,7 @@ const WeatherComponent = () => {
   const [error, setError] = useState(null);
   const [weatherData, setWeatherData] = useState(null);
   const [searchParams] = useSearchParams();
+  const [imagePath, setImagePath] = useState(null);
 
   const query = searchParams.get("city");
   //   const lat = searchParams.get("lat");
@@ -34,8 +40,24 @@ const WeatherComponent = () => {
     const data = await response.json();
     // console.log(data);
     setWeatherData(data);
-  };
 
+    // let imagePath = "";
+
+    if (data.weather[0].main == "Clouds") {
+      // imagePath = "/img/clouds.png";
+      setImagePath(clouds);
+    } else if (data.weather[0].main == "Clear") {
+      setImagePath(clear);
+    } else if (data.weather[0].main == "Rain") {
+      setImagePath(rain);
+    } else if (data.weather[0].main == "Drizzle") {
+      setImagePath(drizzle);
+    } else if (data.weather[0].main == "Mist") {
+      setImagePath(mist);
+    } else {
+      setImagePath(clouds);
+    }
+  };
   useEffect(
     () => {
       fetchWeatherData();
@@ -79,7 +101,19 @@ const WeatherComponent = () => {
   }
 
   return (
-    <div className="container">
+    <div
+      style={{
+        width: "100%",
+        height: "100vh",
+        borderRadius: "5px",
+        opacity: "0.9",
+        backgroundImage: `url(${imagePath})`,
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+      }}
+      className="container"
+    >
       <div className="weather">
         {weatherData !== undefined && (
           <div>
@@ -91,37 +125,49 @@ const WeatherComponent = () => {
               </span>{" "}
               Weather App
             </h2>
-            {weatherImageUrl ? (
-              <img className="w-img" src={weatherImageUrl} alt="img" />
-            ) : null}
-            <h1>{weatherData.main.temp.toFixed()} °C</h1>
-            <p className="desc">{weatherData.weather[0].description}</p>
-            <p>
-              <BiMap /> {weatherData.name}, {weatherData.sys.country}
-            </p>
+            <div>
+              {/* {imagePath && (
+              <div
+                className=""
+                
+              ></div>
+            )} */}
+              {weatherImageUrl ? (
+                <img className="w-img" src={weatherImageUrl} alt="img" />
+              ) : null}
+              <h1>{weatherData.main.temp.toFixed()} °C</h1>
+              <p className="desc">{weatherData.weather[0].description}</p>
+              <p>
+                <BiMap /> {weatherData.name}, {weatherData.sys.country}
+              </p>
 
-            <div className="bottom">
-              <div className="feels">
-                {weatherData ? (
-                  <p className="bold">
-                    {weatherData.main.feels_like.toFixed()}°C
+              <div className="bottom">
+                <div className="feels">
+                  {weatherData ? (
+                    <p className="bold">
+                      {weatherData.main.feels_like.toFixed()}°C
+                    </p>
+                  ) : null}
+                  <p>
+                    <img
+                      className="feelsimg"
+                      src={Feelslike}
+                      alt="Feels Like"
+                    />
+                    Feels Like
                   </p>
-                ) : null}
-                <p>
-                  <img className="feelsimg" src={Feelslike} alt="Feels Like" />
-                  Feels Like
-                </p>
-              </div>
-              <div className="humidity">
-                {weatherData ? (
-                  <p className="bold">{weatherData.main.humidity}%</p>
-                ) : null}
-                <p>
-                  <span>
-                    <img className="feelsimg" src={Humidity} alt="Humidity" />
-                  </span>{" "}
-                  Humidity
-                </p>
+                </div>
+                <div className="humidity">
+                  {weatherData ? (
+                    <p className="bold">{weatherData.main.humidity}%</p>
+                  ) : null}
+                  <p>
+                    <span>
+                      <img className="feelsimg" src={Humidity} alt="Humidity" />
+                    </span>{" "}
+                    Humidity
+                  </p>
+                </div>
               </div>
             </div>
           </div>
