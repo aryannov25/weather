@@ -43,16 +43,16 @@ const WeatherComponent = () => {
 
     // let imagePath = "";
 
-    if (data.weather[0].main == "Clouds") {
+    if (data.weather[0].main === "Clouds") {
       // imagePath = "/img/clouds.png";
       setImagePath(clouds);
-    } else if (data.weather[0].main == "Clear") {
+    } else if (data.weather[0].main === "Clear") {
       setImagePath(clear);
-    } else if (data.weather[0].main == "Rain") {
+    } else if (data.weather[0].main === "Rain") {
       setImagePath(rain);
-    } else if (data.weather[0].main == "Drizzle") {
+    } else if (data.weather[0].main === "Drizzle") {
       setImagePath(drizzle);
-    } else if (data.weather[0].main == "Mist") {
+    } else if (data.weather[0].main === "Mist") {
       setImagePath(mist);
     } else {
       setImagePath(clouds);

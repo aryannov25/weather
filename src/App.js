@@ -43,6 +43,10 @@ function App() {
     <div className="container">
       <div className="weatherInput">
         <h2 className="title">Weather App</h2>
+        <div className="or">
+          <div className="or__line"></div>
+          <div className="or__text"></div>
+        </div>
 
         <form className="search" onSubmit={handleSubmit}>
           <input
@@ -52,14 +56,13 @@ function App() {
               setCity(e.target.value);
             }}
             value={city}
-          />{" "}
-          {/* <button type="submit">
+          />
+          <button className="searchbtn" type="submit" disabled={!city}>
             <img
-              className=""
               alt="search"
               src="https://cdn-icons-png.flaticon.com/512/3917/3917132.png"
             />
-          </button> */}
+          </button>
         </form>
         <div className="or">
           <div className="or__line"></div>
@@ -72,7 +75,9 @@ function App() {
             disabled={!locationEnabled}
           >
             <span>
-            <FaLocationArrow /> </span>{""}&nbsp; Get Current Location
+              <FaLocationArrow />{" "}
+            </span>
+            {""}&nbsp; Get Current Location
           </button>
 
           {locationEnabled === false && (

@@ -15,9 +15,6 @@ import clear from "./img/clear.gif";
 //fdea2e3e09c37566ee84f3c5efc7645e
 
 const WeatherComponent = () => {
-  const [data, setData] = useState({
-    image: "/img/clouds.png",
-  });
   const [error, setError] = useState(null);
   const [weatherData, setWeatherData] = useState(null);
   const [searchParams] = useSearchParams();
@@ -45,16 +42,16 @@ const WeatherComponent = () => {
 
     setWeatherData(data);
 
-    if (data.weather[0].main == "Clouds") {
+    if (data.weather[0].main === "Clouds") {
       // imagePath = "/img/clouds.png";
       setImagePath(clouds);
-    } else if (data.weather[0].main == "Clear") {
+    } else if (data.weather[0].main === "Clear") {
       setImagePath(clear);
-    } else if (data.weather[0].main == "Rain") {
+    } else if (data.weather[0].main === "Rain") {
       setImagePath(rain);
-    } else if (data.weather[0].main == "Drizzle") {
+    } else if (data.weather[0].main === "Drizzle") {
       setImagePath(drizzle);
-    } else if (data.weather[0].main == "Mist") {
+    } else if (data.weather[0].main === "Mist") {
       setImagePath(mist);
     } else {
       setImagePath(clouds);

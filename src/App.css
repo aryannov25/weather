@@ -16,12 +16,7 @@ body {
 .title {
   text-align: start;
   color: #149bf3;
-  border-bottom: #000 solid 1px;
   width: 500px;
-}
-
-.titleline {
-  width: 600px;
 }
 
 h4 {
@@ -34,6 +29,14 @@ h4 {
   justify-content: space-between;
 }
 
+.searchbtn {
+  border-radius: 10px;
+  margin-right: 20px;
+}
+.searchbtn:disabled:hover {
+  cursor: not-allowed;
+  background-position: unset;
+}
 .search input {
   border: none;
   outline: 0;
@@ -52,11 +55,11 @@ h4 {
   color: #c5bfbf;
 }
 .search button {
-  border: none;
-  outline: 0;
+  border: 1px solid rgb(113, 112, 112);
   width: 50px;
   height: 50px;
   border-radius: 50%;
+  margin-right: -20px;
   cursor: pointer;
 }
 .search button img {
@@ -78,12 +81,11 @@ h1 {
 }
 .weatherInput {
   width: 600px;
-  padding: 50px;
+  padding: 40px;
   border-radius: 10px;
-  margin: 50px auto;
+  margin: 12% auto;
   text-align: center;
   background-color: rgb(240, 240, 240);
-
 }
 .weather {
   width: 580px;
@@ -152,7 +154,7 @@ h1 {
 }
 
 .or {
-  color: #ccc;
+  color: #000000;
   margin-top: 20px;
   height: 10px;
   width: 490px;
@@ -163,7 +165,7 @@ h1 {
 }
 
 .or__line {
-  border-top: 0.5px solid #ccc;
+  border-top: 0.5px solid #c1c1c1;
   flex-grow: 1;
 }
 
