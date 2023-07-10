@@ -16,10 +16,10 @@ Documentation
 
 To start this application locally simiply do following steps in the command shell:
 
-1. git clone https://github.com/aryannov25/weather.git
-2. npm install
-3. npm start
-4. Open http://localhost:3000/ in your browser and enjoy the app.
+1. ```git clone https://github.com/aryannov25/weather.git```
+2. ```npm install```
+3. ```npm start```
+4. Open ```http://localhost:3000/``` in your browser and enjoy the app.
 
 The code for the app is available on GitHub at https://github.com/aryannov25/weather. The documentation for the app is also available on GitHub, in the README.md file.
 
