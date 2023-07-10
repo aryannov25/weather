@@ -85,7 +85,8 @@ h1 {
   border-radius: 10px;
   margin: 12% auto;
   text-align: center;
-  background-color: rgb(240, 240, 240);
+  backdrop-filter: blur(1800px);
+  background: linear-gradient(rgb(211, 238, 255), rgb(150, 224, 237));
 }
 .weather {
   width: 580px;
