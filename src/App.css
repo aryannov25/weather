@@ -86,7 +86,7 @@ h1 {
   margin: 12% auto;
   text-align: center;
   backdrop-filter: blur(1800px);
-  background: linear-gradient(rgb(211, 238, 255), rgb(150, 224, 237));
+  background: rgb(211, 238, 255);
 }
 .weather {
   width: 580px;
@@ -174,8 +174,8 @@ h1 {
   position: absolute;
   left: 50%;
   transform: translate(-50%);
-  background-color: white;
-  padding: 0 6px;
+  background-color: rgb(211, 238, 255);
+  padding: 0 8px;
 }
 
 .button-21 {
