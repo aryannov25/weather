@@ -2,7 +2,7 @@ Live Link :-  https://task-weather-app.netlify.app/
 
 This website is a simple weather forecast app that allows users to enter a city and see the current weather conditions. The app uses the OpenWeatherMap API to get the weather data.
 
-##Features
+### Features
 
 The app has the following features:
 
