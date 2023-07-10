@@ -14,7 +14,7 @@ import clear from "./img/clear.gif";
 //16bfa98849718de13b6e8978b87d47b8
 //fdea2e3e09c37566ee84f3c5efc7645e
 
-const WeatherComponent = () => {
+const Location = () => {
   const [error, setError] = useState(null);
   const [weatherData, setWeatherData] = useState(null);
   const [searchParams] = useSearchParams();
@@ -193,4 +193,4 @@ const WeatherComponent = () => {
   );
 };
 
-export default WeatherComponent;
+export default Location;
