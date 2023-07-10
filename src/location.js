@@ -88,12 +88,12 @@ const Location = () => {
           <h2 className="back">
             <span className="backarrow">
               <Link to="/">
-                <img className="backarrow" src={Back} alt="Humidity" />{" "}
+                <img className="backarrow" src={Back} alt="Humidity" />
               </Link>
-            </span>{" "}
+            </span>
             Weather App
           </h2>
-          {/* <p className="error">Location Not Found!</p>{" "} */}
+          {/* <p className="error">Location Not Found!</p> */}
         </div>
       </div>
     );
@@ -106,12 +106,12 @@ const Location = () => {
           <h2 className="back">
             <span className="backarrow">
               <Link to="/">
-                <img className="backarrow" src={Back} alt="Humidity" />{" "}
+                <img className="backarrow" src={Back} alt="Humidity" />
               </Link>
-            </span>{" "}
+            </span>
             Weather App
           </h2>
-          {/* <p className="error">Location Not Found!</p>{" "} */}
+          {/* <p className="error">Location Not Found!</p> */}
         </div>
       </div>
     );
@@ -137,9 +137,9 @@ const Location = () => {
               <h2 className="back">
                 <span className="backarrow">
                   <Link to="/">
-                    <img className="backarrow" src={Back} alt="Humidity" />{" "}
+                    <img className="backarrow" src={Back} alt="Humidity" />
                   </Link>
-                </span>{" "}
+                </span>
                 Weather App
               </h2>
               <div>
@@ -179,7 +179,7 @@ const Location = () => {
                           src={Humidity}
                           alt="Humidity"
                         />
-                      </span>{" "}
+                      </span>
                       Humidity
                     </p>
                   </div>

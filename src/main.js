@@ -72,12 +72,12 @@ const Main = () => {
           <h2 className="back">
             <span className="backarrow">
               <Link to="/">
-                <img className="backarrow" src={Back} alt="Humidity" />{" "}
+                <img className="backarrow" src={Back} alt="Humidity" />
               </Link>
-            </span>{" "}
+            </span>
             Weather App
           </h2>
-          <p className="error">City Not Found!</p>{" "}
+          <p className="error">City Not Found!</p>
         </div>
       </div>
     );
@@ -87,7 +87,7 @@ const Main = () => {
     return (
       <div className="container">
         <div className="weather">
-          <div>Loading...</div>{" "}
+          <div>Loading...</div>
         </div>
       </div>
     );
@@ -113,9 +113,9 @@ const Main = () => {
             <h2 className="back">
               <span className="backarrow">
                 <Link to="/">
-                  <img className="backarrow" src={Back} alt="Humidity" />{" "}
+                  <img className="backarrow" src={Back} alt="Humidity" />
                 </Link>
-              </span>{" "}
+              </span>
               Weather App
             </h2>
             <div>
@@ -151,7 +151,7 @@ const Main = () => {
                   <p>
                     <span>
                       <img className="feelsimg" src={Humidity} alt="Humidity" />
-                    </span>{" "}
+                    </span>
                     Humidity
                   </p>
                 </div>

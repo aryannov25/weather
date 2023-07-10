@@ -75,7 +75,7 @@ function App() {
             disabled={!locationEnabled}
           >
             <span>
-              <FaLocationArrow />{" "}
+              <FaLocationArrow />
             </span>
             {""}&nbsp; Get Current Location
           </button>
