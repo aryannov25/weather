@@ -120,7 +120,7 @@ const WeatherComponent = () => {
   return (
     <div
       style={{
-        width: "100vh",
+        width: "100%",
         height: "100vh",
         borderRadius: "5px",
         backgroundImage: `url(${imagePath})`,
