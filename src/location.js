@@ -9,7 +9,7 @@ import clouds from "./img/clouds.gif";
 import rain from "./img/rain.gif";
 import mist from "./img/mist.gif";
 import drizzle from "./img/drizzle.gif";
-import clear from "./img/clear.gif";
+import clear from "./img/clear1.gif";
 
 //16bfa98849718de13b6e8978b87d47b8
 //fdea2e3e09c37566ee84f3c5efc7645e
