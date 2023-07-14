@@ -4,19 +4,11 @@ import { FaLocationArrow } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 function App() {
-  const [city, setCity] = useState("");
-  const [selectedCity, setSelectedCity] = useState("");
   const [lat, setLat] = useState("");
   const [lon, setLon] = useState("");
   const [locationEnabled, setLocationEnabled] = useState(undefined);
 
   const navigate = useNavigate();
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   navigate(`/weather?city=${selectedCity}`);
-  // };
-
   useEffect(() => {
     location();
   }, []);
@@ -36,15 +28,8 @@ function App() {
   };
 
   const handleCityChange = (e) => {
-    setSelectedCity(e.target.value);
-  };
-
-  
-  console.log(selectedCity);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    navigate(`/weather?city=${selectedCity}`);
+    const cityName = e.target.value;
+    navigate(`/weather?city=${cityName}`);
   };
 
   const handleClick = (e) => {
@@ -61,7 +46,7 @@ function App() {
           <div className="or__text"></div>
         </div>
 
-        <form className="search" onChange={handleSubmit}>
+        <form className="search">
           {/* <input
             type="text"
             placeholder="Enter city name"
@@ -71,13 +56,8 @@ function App() {
             value={city}
           /> */}
 
-          <label for="City">Select a City</label>
-          <select
-            name="cities"
-            id="city"
-            value={selectedCity}
-            onChange={handleCityChange}
-          >
+          <select name="cities" id="city" onChange={handleCityChange}>
+          <option value="Select">Select a City</option>
             <option value="Delhi">Delhi</option>
             <option value="Chennai">Chennai</option>
             <option value="Bangalore">Bangalore</option>
