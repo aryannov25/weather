@@ -10,7 +10,7 @@ body {
   min-height: 100svh;
   font-family: "Poppins", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
     "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-  background:  rgb(27, 154, 218);
+  background: rgb(27, 154, 218);
 }
 
 .title {
@@ -19,7 +19,10 @@ body {
   width: 500px;
   margin-bottom: 10px;
 }
-
+.select {
+  display: flex;
+  justify-content: center;
+}
 h4 {
   margin-top: 20px;
 }
@@ -173,7 +176,7 @@ h1 {
   position: absolute;
   left: 50%;
   transform: translate(-50%);
-  background-color: rgb(211, 238, 255);
+  background-color: #fff;
   padding: 0 8px;
 }
 
