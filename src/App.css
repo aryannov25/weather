@@ -10,13 +10,14 @@ body {
   min-height: 100svh;
   font-family: "Poppins", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
     "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-  background: linear-gradient(rgb(176, 198, 213), rgb(29, 137, 156));
+  background:  rgb(27, 154, 218);
 }
 
 .title {
   text-align: start;
   color: #149bf3;
   width: 500px;
+  margin-bottom: 10px;
 }
 
 h4 {
@@ -82,11 +83,10 @@ h1 {
 .weatherInput {
   width: 600px;
   padding: 40px;
-  border-radius: 10px;
   margin: 12% auto;
   text-align: center;
   backdrop-filter: blur(1800px);
-  background: rgb(211, 238, 255);
+  background: #fff;
 }
 .weather {
   width: 580px;
@@ -94,9 +94,8 @@ h1 {
   border-radius: 10px;
   margin: 50px auto;
   text-align: center;
-  border: 1px solid black;
   backdrop-filter: blur(100px);
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: #fff;
 }
 
 .bold {
@@ -108,15 +107,15 @@ h1 {
   justify-content: space-evenly;
   text-align: center;
   width: 100%;
-  margin: 1rem auto;
+  margin-top: 10px;
   padding: 1rem;
   border-top: #000 solid 1px;
   background-color: rgba(255, 255, 255, 0.2);
 }
 
 .w-img {
-  height: 160px;
-  width: 160px;
+  height: 140px;
+  width: 140px;
 }
 
 .feels {
@@ -156,9 +155,9 @@ h1 {
 
 .or {
   color: #000000;
-  margin-top: 20px;
+  margin-top: 15px;
   height: 10px;
-  width: 490px;
+  width: 500px;
   position: relative;
   display: flex;
   align-items: center;
@@ -190,7 +189,7 @@ h1 {
   display: inline-flex;
   font-family: CircularStd, sans-serif;
   font-size: 1rem;
-  width: 400px;
+  width: 450px;
   margin-right: 10px;
   margin-top: 20px;
   height: auto;

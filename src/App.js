@@ -5,16 +5,17 @@ import { useNavigate } from "react-router-dom";
 
 function App() {
   const [city, setCity] = useState("");
+  const [selectedCity, setSelectedCity] = useState("");
   const [lat, setLat] = useState("");
   const [lon, setLon] = useState("");
   const [locationEnabled, setLocationEnabled] = useState(undefined);
 
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    navigate(`/weather?city=${city}`);
-  };
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   navigate(`/weather?city=${selectedCity}`);
+  // };
 
   useEffect(() => {
     location();
@@ -34,6 +35,18 @@ function App() {
     );
   };
 
+  const handleCityChange = (e) => {
+    setSelectedCity(e.target.value);
+  };
+
+  
+  console.log(selectedCity);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    navigate(`/weather?city=${selectedCity}`);
+  };
+
   const handleClick = (e) => {
     e.preventDefault();
     navigate(`/location?lat=${lat}&lon=${lon}`);
@@ -48,21 +61,35 @@ function App() {
           <div className="or__text"></div>
         </div>
 
-        <form className="search" onSubmit={handleSubmit}>
-          <input
+        <form className="search" onChange={handleSubmit}>
+          {/* <input
             type="text"
             placeholder="Enter city name"
             onChange={(e) => {
               setCity(e.target.value);
             }}
             value={city}
-          />
-          <button className="searchbtn" type="submit" disabled={!city}>
+          /> */}
+
+          <label for="City">Select a City</label>
+          <select
+            name="cities"
+            id="city"
+            value={selectedCity}
+            onChange={handleCityChange}
+          >
+            <option value="Delhi">Delhi</option>
+            <option value="Chennai">Chennai</option>
+            <option value="Bangalore">Bangalore</option>
+            <option value="Mumbai">Mumbai</option>
+          </select>
+
+          {/* <button className="searchbtn" type="submit" disabled={!city}>
             <img
               alt="search"
               src="https://cdn-icons-png.flaticon.com/512/3917/3917132.png"
             />
-          </button>
+          </button> */}
         </form>
         <div className="or">
           <div className="or__line"></div>
