@@ -56,7 +56,6 @@ function App() {
             value={city}
           /> */}
 
-          <div className="select">
             <select name="cities" id="city" onChange={handleCityChange}>
               <option value="Select">Select a City</option>
               <option value="Delhi">Delhi</option>
@@ -64,7 +63,6 @@ function App() {
               <option value="Bangalore">Bangalore</option>
               <option value="Mumbai">Mumbai</option>
             </select>
-          </div>
           {/* <button className="searchbtn" type="submit" disabled={!city}>
             <img
               alt="search"
