@@ -19,10 +19,7 @@ body {
   width: 500px;
   margin-bottom: 10px;
 }
-.select {
-  display: flex;
-  justify-content: center;
-}
+
 h4 {
   margin-top: 20px;
 }
