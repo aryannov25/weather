@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 function App() {
   const [lat, setLat] = useState("");
   const [lon, setLon] = useState("");
+  const [city , setCity] =  useState("");
   const [locationEnabled, setLocationEnabled] = useState(undefined);
 
   const navigate = useNavigate();
