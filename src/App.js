@@ -54,14 +54,14 @@ function App() {
         </div>
 
         <form className="search">
-          {/* <input
+          <input
             type="text"
             placeholder="Enter city name"
             onChange={(e) => {
               setCity(e.target.value);
             }}
             value={city}
-          /> */}
+          />
 
           {/* <select name="cities" id="city" onChange={handleCityChange}>
             <option value="Select">Select a City</option>
