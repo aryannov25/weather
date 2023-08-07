@@ -38,19 +38,19 @@ const Main = () => {
     // console.log(data);
     setWeatherData(data);
 
-    // if (data.weather[0].main === "Clouds") {
-    //   setImagePath(clouds);
-    // } else if (data.weather[0].main === "Clear") {
-    //   setImagePath(clear);
-    // } else if (data.weather[0].main === "Rain") {
-    //   setImagePath(rain);
-    // } else if (data.weather[0].main === "Drizzle") {
-    //   setImagePath(drizzle);
-    // } else if (data.weather[0].main === "Mist") {
-    //   setImagePath(mist);
-    // } else {
-    //   setImagePath(clouds);
-    // }
+    if (data.weather[0].main === "Clouds") {
+      setImagePath(clouds);
+    } else if (data.weather[0].main === "Clear") {
+      setImagePath(clear);
+    } else if (data.weather[0].main === "Rain") {
+      setImagePath(rain);
+    } else if (data.weather[0].main === "Drizzle") {
+      setImagePath(drizzle);
+    } else if (data.weather[0].main === "Mist") {
+      setImagePath(mist);
+    } else {
+      setImagePath(clouds);
+    }
   };
   useEffect(
     () => {
@@ -96,16 +96,16 @@ const Main = () => {
 
   return (
     <div
-      // style={{
-      //   width: "100%",
-      //   height: "100vh",
-      //   borderRadius: "5px",
-      //   opacity: "0.9",
-      //   backgroundImage: `url(${imagePath})`,
-      //   backgroundSize: "cover",
-      //   backgroundRepeat: "no-repeat",
-      //   backgroundPosition: "center",
-      // }}
+      style={{
+        width: "100%",
+        height: "100vh",
+        borderRadius: "5px",
+        opacity: "0.9",
+        backgroundImage: `url(${imagePath})`,
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+      }}
       className="container"
     >
       <div className="weather">
