@@ -27,14 +27,20 @@ function App() {
     );
   };
 
-  const handleCityChange = (e) => {
-    const cityName = e.target.value;
-    navigate(`/weather?city=${cityName}`);
-  };
+  // const handleCityChange = (e) => {
+  //   const cityName = e.target.value;
+  //   navigate(`/weather?city=${cityName}`);
+  // };
 
   const handleClick = (e) => {
     e.preventDefault();
     navigate(`/location?lat=${lat}&lon=${lon}`);
+  };
+
+
+  const handleCity = (e) => {
+    e.preventDefault();
+    navigate(`/weather?city=${city}`);
   };
 
   return (
@@ -56,19 +62,19 @@ function App() {
             value={city}
           /> */}
 
-          <select name="cities" id="city" onChange={handleCityChange}>
+          {/* <select name="cities" id="city" onChange={handleCityChange}>
             <option value="Select">Select a City</option>
             <option value="Delhi">Delhi</option>
             <option value="Chennai">Chennai</option>
             <option value="Bangalore">Bangalore</option>
             <option value="Mumbai">Mumbai</option>
-          </select>
-          {/* <button className="searchbtn" type="submit" disabled={!city}>
+          </select> */}
+          <button className="searchbtn" type="submit" disabled={!city} onClick={handleCity}>
             <img
               alt="search"
               src="https://cdn-icons-png.flaticon.com/512/3917/3917132.png"
             />
-          </button> */}
+          </button>
         </form>
         <div className="or">
           <div className="or__line"></div>
